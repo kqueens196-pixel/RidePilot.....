@@ -1,3 +1,84 @@
-<uses-permission android:name="android.permission.SEND_SMS" />
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- System & Overlay Permissions -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- SMS Permissions (OTP verification ke liye) -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
+
+    <!-- Route & Location Tracking Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <!-- Queries for all delivery & ride partners -->
+    <queries>
+        <package android:name="com.application.zomato.delivery" />
+        <package android:name="in.swiggy.deliverypartner" />
+        <package android:name="com.ubercab.driver" />
+        <package android:name="com.rapido.rider" />
+        <package android:name="com.olacabs.partner" />
+        <package android:name="com.zepto.delivery" />
+        <package android:name="com.grofers.delivery" />
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@android:drawable/sym_def_app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@android:drawable/sym_def_app_icon"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Material.NoActionBar">
+
+        <!-- 1. Permission Setup / Onboarding -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 2. Phone Login & OTP Verification -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+        <!-- 3. ₹99 Subscription Paywall & Free Trial -->
+        <activity
+            android:name=".SubscriptionActivity"
+            android:exported="false" />
+
+        <!-- 4. Main Rider Live Dashboard -->
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+
+        <!-- 5. Accessibility Auto-Accept Engine -->
+        <service
+            android:name=".RidePilotEngine"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <!-- 6. Floating Overlay HUD Widget -->
+        <service
+            android:name=".FloatingOverlayService"
+            android:exported="false" />
+
+    </application>
+</manifest>
