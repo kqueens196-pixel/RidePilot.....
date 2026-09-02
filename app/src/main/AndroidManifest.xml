@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- SMS Permissions (OTP verification ke liye) -->
+    <!-- SMS Permissions -->
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
@@ -37,7 +37,6 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.NoActionBar">
 
-        <!-- 1. Permission Setup / Onboarding -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -47,22 +46,18 @@
             </intent-filter>
         </activity>
 
-        <!-- 2. Phone Login & OTP Verification -->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
 
-        <!-- 3. ₹99 Subscription Paywall & Free Trial -->
         <activity
             android:name=".SubscriptionActivity"
             android:exported="false" />
 
-        <!-- 4. Main Rider Live Dashboard -->
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
 
-        <!-- 5. Accessibility Auto-Accept Engine -->
         <service
             android:name=".RidePilotEngine"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
@@ -75,7 +70,6 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
 
-        <!-- 6. Floating Overlay HUD Widget -->
         <service
             android:name=".FloatingOverlayService"
             android:exported="false" />
