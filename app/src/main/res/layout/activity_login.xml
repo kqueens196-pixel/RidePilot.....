@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0A0E17"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RIDEPILOT"
+        android:textColor="#38BDF8"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="One App. Every Ride. More Control."
+        android:textColor="#94A3B8"
+        android:textSize="14sp"
+        android:layout_marginTop="6dp" />
+
+    <!-- Phone Number Input Section -->
+    <LinearLayout
+        android:id="@+id/layoutPhoneInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="48dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Mobile Number"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="#161F30"
+            android:hint="+91 98765 43210"
+            android:textColorHint="#475569"
+            android:textColor="#FFFFFF"
+            android:inputType="phone"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnSendOtp"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Send OTP"
+            android:backgroundTint="#2563EB"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+
+    <!-- OTP Input Section (Hidden initially) -->
+    <LinearLayout
+        android:id="@+id/layoutOtpInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter 6-Digit OTP"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etOtpCode"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="#161F30"
+            android:hint="••••••"
+            android:gravity="center"
+            android:letterSpacing="0.4"
+            android:textColorHint="#475569"
+            android:textColor="#38BDF8"
+            android:textSize="20sp"
+            android:inputType="number"
+            android:maxLength="6"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnVerifyOtp"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Verify &amp; Continue"
+            android:backgroundTint="#10B981"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+
+</LinearLayout>
