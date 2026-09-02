@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0E17"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RIDEPILOT PREMIUM"
+        android:textColor="#38BDF8"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unlimited Auto Accept &amp; Smart Routing"
+        android:textColor="#94A3B8"
+        android:textSize="13sp"
+        android:layout_marginTop="4dp" />
+
+    <!-- Plan Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#161F30"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_marginTop="28dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monthly Unlimited Pass"
+            android:textColor="#E2E8F0"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="₹99 / Month"
+            android:textColor="#10B981"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✔ Auto Accept on Zomato, Swiggy, Uber, Rapido\n✔ Smart 1km / 2km Distance Filters\n✔ Parcel Mode Only Filter\n✔ Priority 24x7 Driver Support"
+            android:textColor="#CBD5E1"
+            android:textSize="13sp"
+            android:lineSpacingExtra="6dp"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+
+    <!-- Action Buttons -->
+    <Button
+        android:id="@+id/btnSubscribeUpi"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="Pay ₹99 via UPI (GPay/PhonePe)"
+        android:backgroundTint="#2563EB"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginTop="28dp" />
+
+    <Button
+        android:id="@+id/btnFreeTrial"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Start 1-Day Free Trial"
+        android:backgroundTint="#1E293B"
+        android:textColor="#38BDF8"
+        android:layout_marginTop="12dp" />
+
+</LinearLayout>
