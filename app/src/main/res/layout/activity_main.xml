@@ -1,105 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#0F172A"
-    android:padding="24dp"
-    android:gravity="center_horizontal">
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RidePilot Setup"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="32dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enable required permissions to start auto-pilot"
-        android:textSize="14sp"
-        android:textColor="#94A3B8"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="32dp" />
-
-    <!-- Card 1: Overlay -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#1E293B"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp">
+        android:padding="24dp"
+        android:gravity="center_horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1. Display Over Other Apps"
-            android:textColor="#38BDF8"
+            android:text="RidePilot Setup"
+            android:textSize="26sp"
             android:textStyle="bold"
-            android:textSize="16sp" />
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Required to show floating widget over delivery apps."
-            android:textColor="#CBD5E1"
-            android:textSize="12sp"
-            android:layout_marginTop="4dp" />
+            android:text="Grant required permissions for smart route auto-accept"
+            android:textSize="13sp"
+            android:textColor="#94A3B8"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="24dp" />
 
-        <Button
-            android:id="@+id/btnOverlay"
+        <!-- 1. Overlay -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Grant Overlay Permission"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="#2563EB" />
-    </LinearLayout>
+            android:orientation="vertical"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp">
 
-    <!-- Card 2: Accessibility -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#1E293B"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. Display Over Other Apps"
+                android:textColor="#38BDF8"
+                android:textStyle="bold"
+                android:textSize="15sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2. Accessibility Service"
-            android:textColor="#38BDF8"
-            android:textStyle="bold"
-            android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shows floating HUD on delivery apps."
+                android:textColor="#CBD5E1"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Required to detect orders and auto-accept rides."
-            android:textColor="#CBD5E1"
-            android:textSize="12sp"
-            android:layout_marginTop="4dp" />
+            <Button
+                android:id="@+id/btnOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Grant Overlay"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#2563EB" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/btnAccessibility"
+        <!-- 2. Accessibility -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Grant Accessibility"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="#2563EB" />
+            android:orientation="vertical"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. Accessibility Auto-Accept"
+                android:textColor="#38BDF8"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reads incoming orders &amp; clicks accept."
+                android:textColor="#CBD5E1"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp" />
+
+            <Button
+                android:id="@+id/btnAccessibility"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Grant Accessibility"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#2563EB" />
+        </LinearLayout>
+
+        <!-- 3. Location (Route Tracking) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3. Location &amp; Same Route Match"
+                android:textColor="#38BDF8"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filters orders falling strictly on your driving path."
+                android:textColor="#CBD5E1"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp" />
+
+            <Button
+                android:id="@+id/btnLocation"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Grant GPS Location"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#2563EB" />
+        </LinearLayout>
+
+        <!-- Proceed Button -->
+        <Button
+            android:id="@+id/btnProceed"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Continue To Login"
+            android:backgroundTint="#10B981"
+            android:textStyle="bold" />
+
     </LinearLayout>
-
-    <!-- Proceed Button -->
-    <Button
-        android:id="@+id/btnProceed"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Continue To Dashboard"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="#10B981" />
-
-</LinearLayout>
+</ScrollView>
