@@ -19,14 +19,17 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
+
     - name: Build Debug APK
       run: |
-        chmod +x gradlew || true
-        ./gradlew assembleDebug --stacktrace || echo "Waiting for project gradle files"
+        gradle wrapper
+        chmod +x gradlew
+        ./gradlew assembleDebug --no-daemon --stacktrace
 
     - name: Upload APK File
       uses: actions/upload-artifact@v4
       with:
         name: RidePilot-Debug-APK
         path: app/build/outputs/apk/debug/*.apk
-        if-no-files-found: ignore
