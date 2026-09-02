@@ -1,67 +1,64 @@
 package com.ridepilot.app
 
 import android.app.Activity
+import android.graphics.Color
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 
 class DashboardActivity : Activity() {
 
+    private lateinit var earningsTracker: EarningsTracker
+    private var isScannerOn = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_dashboard)
 
-        val layout = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(40, 60, 40, 40)
+        earningsTracker = EarningsTracker(this)
+
+        val tvEarnings = findViewById<TextView>(R.id.tvTotalEarnings)
+        val tvOrders = findViewById<TextView>(R.id.tvTotalOrders)
+        val tvStatus = findViewById<TextView>(R.id.tvPilotStatus)
+        val btnToggle = findViewById<Button>(R.id.btnToggleService)
+        val btnSimulate = findViewById<Button>(R.id.btnSimulateOrder)
+        val btnReset = findViewById<Button>(R.id.btnResetStats)
+
+        fun updateUI() {
+            tvEarnings.text = "₹${earningsTracker.getTotalEarnings().toInt()}"
+            tvOrders.text = "${earningsTracker.getCompletedOrdersCount()}"
         }
 
-        // App Branding
-        val title = TextView(this).apply {
-            text = "RidePilot - Auto Pilot Mode"
-            textSize = 22f
+        updateUI()
+
+        // Toggle Auto-pilot ON/OFF
+        btnToggle.setOnClickListener {
+            isScannerOn = !isScannerOn
+            if (isScannerOn) {
+                tvStatus.text = "AUTO-PILOT ACTIVE"
+                tvStatus.setTextColor(Color.parseColor("#10B981"))
+                btnToggle.text = "PAUSE SCANNER"
+                btnToggle.setBackgroundColor(Color.parseColor("#EF4444"))
+            } else {
+                tvStatus.text = "AUTO-PILOT PAUSED"
+                tvStatus.setTextColor(Color.parseColor("#94A3B8"))
+                btnToggle.text = "RESUME SCANNER"
+                btnToggle.setBackgroundColor(Color.parseColor("#10B981"))
+            }
         }
-        layout.addView(title)
 
-        // Dynamic Price Banner
-        val price = RidePilotEngine.getSubscriptionPrice()
-        val offerText = if (RidePilotEngine.isLaunchOfferActive()) {
-            "Special Launch Offer: ₹99/month (1st Order Free Trial)"
-        } else {
-            "Standard Plan: ₹149/month"
+        // Test complete ride to verify earnings update
+        btnSimulate.setOnClickListener {
+            earningsTracker.addOrder(55.0)
+            updateUI()
+            Toast.makeText(this, "Order Completed: +₹55 added!", Toast.LENGTH_SHORT).show()
         }
-        val banner = TextView(this).apply {
-            text = "\nPlan: $offerText\n"
-            textSize = 16f
+
+        btnReset.setOnClickListener {
+            earningsTracker.resetDailyStats()
+            updateUI()
+            Toast.makeText(this, "Daily stats reset to 0", Toast.LENGTH_SHORT).show()
         }
-        layout.addView(banner)
-
-        // Vehicle Filter
-        val vehicleLabel = TextView(this).apply { text = "Select Vehicle Type:" }
-        layout.addView(vehicleLabel)
-
-        val vehicleSpinner = Spinner(this).apply {
-            adapter = ArrayAdapter(this@DashboardActivity, android.R.layout.simple_spinner_dropdown_item, 
-                arrayOf("Bike (Delivery + Ride)", "Auto (Ride + Parcel)", "Car (Only Rides)"))
-        }
-        layout.addView(vehicleSpinner)
-
-        // Distance Filter
-        val distanceLabel = TextView(this).apply { text = "\nSelect Distance Radius:" }
-        layout.addView(distanceLabel)
-
-        val distanceSpinner = Spinner(this).apply {
-            adapter = ArrayAdapter(this@DashboardActivity, android.R.layout.simple_spinner_dropdown_item, 
-                arrayOf("Under 2 KM", "Under 5 KM", "10 KM+"))
-        }
-        layout.addView(distanceSpinner)
-
-        // Master Switch
-        val toggle = ToggleButton(this).apply {
-            textOn = "AUTO-PILOT ACTIVE (RUNNING)"
-            textOff = "START RIDE-PILOT"
-            isChecked = false
-        }
-        layout.addView(toggle)
-
-        setContentView(layout)
     }
 }
