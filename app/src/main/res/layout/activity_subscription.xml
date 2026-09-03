@@ -1,81 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0A0E17"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center_horizontal">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RIDEPILOT PREMIUM"
-        android:textColor="#38BDF8"
-        android:textStyle="bold"
-        android:textSize="22sp"
-        android:layout_marginTop="28dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Unlimited Auto Accept &amp; Route Matching"
-        android:textColor="#94A3B8"
-        android:textSize="13sp"
-        android:layout_marginTop="4dp" />
+    android:background="#0F172A"
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#161F30"
         android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_marginTop="32dp">
+        android:gravity="center_horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Monthly Unlimited Pass"
-            android:textColor="#E2E8F0"
+            android:text="Choose Subscription Plan"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:textSize="16sp" />
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="₹99 / Month"
-            android:textColor="#10B981"
+            android:text="Select your payment method below"
+            android:textColor="#94A3B8"
+            android:textSize="14sp"
+            android:layout_marginBottom="30dp" />
+
+        <!-- UPI Payment Option -->
+        <Button
+            android:id="@+id/btnSubscribeUpi"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Pay with UPI (GPay / PhonePe / Paytm)"
+            android:backgroundTint="#2563EB"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:textSize="28sp"
-            android:layout_marginTop="8dp" />
+            android:layout_marginBottom="14dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="✔ Auto Accept on Zomato, Swiggy, Uber, Rapido\n✔ Smart 1km / 2km Distance Filters\n✔ Same Route GPS Matching\n✔ Parcel Mode Only Support"
-            android:textColor="#CBD5E1"
-            android:textSize="13sp"
-            android:lineSpacingExtra="6dp"
-            android:layout_marginTop="16dp" />
+        <!-- Debit / Credit Card Option -->
+        <Button
+            android:id="@+id/btnPayCard"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Pay via Debit / Credit Card"
+            android:backgroundTint="#1E293B"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginBottom="14dp" />
+
+        <!-- Net Banking Option -->
+        <Button
+            android:id="@+id/btnPayNetBanking"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Pay via Net Banking"
+            android:backgroundTint="#1E293B"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginBottom="14dp" />
+
+        <!-- Free Trial Option -->
+        <Button
+            android:id="@+id/btnFreeTrial"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Start 7-Day Free Trial"
+            android:backgroundTint="#10B981"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp" />
+
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnSubscribeUpi"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:text="Pay ₹99 via UPI (GPay/PhonePe)"
-        android:backgroundTint="#2563EB"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:layout_marginTop="28dp" />
-
-    <Button
-        android:id="@+id/btnFreeTrial"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="Start 1-Day Free Trial"
-        android:backgroundTint="#1E293B"
-        android:textColor="#38BDF8"
-        android:layout_marginTop="12dp" />
-
-</LinearLayout>
+</ScrollView>
